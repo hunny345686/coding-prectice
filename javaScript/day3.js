@@ -94,11 +94,12 @@ function memoize(fn) {
   const cache = {};
 
   return function (...args) {
-    if (cache[fn]) {
-      return cache[fn];
+     const key = JSON.stringify(args);
+    if (cache[key]) {
+      return cache[key];
     }
-    cache[fn] = fn();
-    return fn();
+    cache[key] = fn(...args);
+    return fn(...args);
   };
 }
 
