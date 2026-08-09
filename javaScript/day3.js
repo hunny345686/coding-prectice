@@ -2,7 +2,7 @@
 
 function myAllPromiss(promi) {
   const result = [];
-  let complete =0;
+  let complete = 0;
 
   return new Promise((resolve, reject) => {
     if (promi.length === 0) {
@@ -38,7 +38,7 @@ async function retry(fn, retries) {
     await fn();
   } catch (err) {
     if (retries > 0) {
-     return await  retry(fn, retries - 1);
+      return await retry(fn, retries - 1);
     } else {
       console.log(err);
     }
@@ -71,11 +71,11 @@ Promise.resolve()
 
 console.log("End");
 
-1 - Start - > Sync code
-2 - End   -> Sync code
-3 - Promise1 - async with microtask
-4 - Promise2 - async with microtask
-5 - Timeout - asunc with callback Queue
+// 1 - Start - > Sync code
+// 2 - End   -> Sync code
+// 3 - Promise1 - async with microtask
+// 4 - Promise2 - async with microtask
+// 5 - Timeout - asunc with callback Queue
 
 // Question 6 - React (Very Common)
 const [count, setCount] = useState(0);
@@ -84,17 +84,17 @@ setCount(count + 1);
 setCount(count + 1);
 setCount(count + 1);
 
-What will be the final value? => Value will be  1
+// What will be the final value? => Value will be  1
 
-Why? => its a stale coulser issue we are not updateing the prev valuew
+// Why? => its a stale coulser issue we are not updateing the prev valuew
 
-How do you fix it? setCount(prev=> prev + 1);
+// How do you fix it? setCount(prev=> prev + 1);
 
 function memoize(fn) {
   const cache = {};
 
   return function (...args) {
-     const key = JSON.stringify(args);
+    const key = JSON.stringify(args);
     if (cache[key]) {
       return cache[key];
     }
