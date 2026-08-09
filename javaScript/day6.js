@@ -5,14 +5,14 @@ const obj = {
 };
 
 function getObjectKeys() {
-  console.log(this.name);
+  //   console.log(this.name);
   return this.name;
 }
 
 // getObjectKeys.call(obj); // "John"
 
 Function.prototype.myCall = function (ctx) {
-  console.log(ctx);
+  //   console.log(ctx);
 
   ctx["fn"] = this;
 
@@ -24,15 +24,14 @@ getObjectKeys.myCall(obj);
 // Implement infinite currying
 
 function sum(a) {
-  return function (...b) {
-    if (b.length === 0) {
+  return function (...args) {
+    if (args.length === 0) {
       return a;
     }
 
-    // if multi Args there
-    const totel = b.reduce((acc, num) => acc + num, 0);
+    const total = args.reduce((acc, val) => acc + val, 0);
 
-    return sum(a + totel);
+    return sum(a + total);
   };
 }
 
