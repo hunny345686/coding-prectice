@@ -1,0 +1,13 @@
+function sum(a) {
+  return function (b) {
+    if (b == undefined) {
+      return a;
+    }
+
+    return sum(a + b);
+  };
+}
+
+// sum(1)(2)(3)();
+
+console.log(sum(1)(2)(3)());

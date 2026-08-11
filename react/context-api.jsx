@@ -5,18 +5,29 @@ const MyContext = createContext();
 const ContextProvider = ({ children }) => {
   const [user, setUser] = useState("Prem");
 
-  return <MyContext.Provider value={{user ,setUser}}>{children}</MyContext.Provider>;
+  return (
+    <MyContext.Provider value={{ user, setUser }}>
+      {children}
+    </MyContext.Provider>
+  );
 };
 
-
 <ContextProvider>
-    <APP/>
-</ContextProvider>
+  <APP />
+</ContextProvider>;
 
+// and use it in component
 
-// and use it in component 
+let { user, setUser } = useContext(MyContext);
 
+// and use it
 
-let {user, setUser} = useContext(MyContext)
+const controller = new AbortController();
 
-// and use it 
+fetch("url", {
+  signal: controller.signal,
+});
+
+return () => {
+  controller.abort();
+};
