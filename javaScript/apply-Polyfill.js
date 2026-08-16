@@ -10,3 +10,17 @@ Function.prototype.myAppy = function (ctx, args = []) {
 
   return result;
 };
+
+Function.prototype.myAppy = function (ctx, args = []) {
+  ctx = ctx || globalThis;
+
+  const key = Symbol();
+
+  ctx[key] = this;
+
+  const result = ctx[key](...args);
+
+  delete ctx[key];
+
+  return result;
+};

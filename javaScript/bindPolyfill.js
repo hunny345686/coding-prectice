@@ -5,3 +5,5 @@ Function.prototype.myBind = function (ctx, ...args) {
     return fn.apply(ctx, [...args, ...newArgs]);
   };
 };
+
+Function.prototype;
