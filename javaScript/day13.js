@@ -28,3 +28,19 @@ function removeDuplicates(arr) {
 }
 
 console.log(removeDuplicates(users));
+
+//1. Closure — understand it
+function outer() {
+  let count = 0;
+
+  return function inner() {
+    count++;
+    return count;
+  };
+}
+
+const counter = outer();
+
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
