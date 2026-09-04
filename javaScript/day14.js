@@ -76,3 +76,89 @@ function flaternArry(arr) {
 }
 
 console.log(flaternArry(farr));
+
+// 4. Implement map
+
+function myMap(arr, cb) {
+  const result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    result.push(cb(arr[i], i, arr));
+  }
+
+  return result;
+}
+
+// 5. Implement filter
+
+function myFiler(arr, cb) {
+  const result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (cb(arr[i], i, arr)) {
+      result.push(arr[i]);
+    }
+  }
+
+  return result;
+}
+
+// 6. Implement reduce
+
+function myFiler(arr, cb, initVal) {
+  let acc = initVal;
+
+  for (let i = 0; i < arr.length; i++) {
+    acc = cb(acc, arr[i], i, arr);
+  }
+
+  return acc;
+}
+
+// 7. Find frequency of elements
+const arr2 = ["a", "b", "a", "c", "b", "a"];
+
+function frequency(arr) {
+  const result = {};
+
+  for (const item of arr) {
+    if (result[item]) {
+      result[item]++;
+    } else {
+      result[item] = 1;
+    }
+  }
+
+  console.log(result);
+}
+
+frequency(arr2);
+
+// 10. Debounce 🔥
+
+function debounce(fn, delay) {
+  let timer;
+
+  return function (...args) {
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+}
+
+// 11. Throttle
+
+function throttle(fn, delay) {
+  const lastTime = 0;
+
+  return function (...args) {
+    const now = Date.mow();
+
+    if (now - lastTime >= delay) {
+      lastTime = now;
+      fn.apply(this, args);
+    }
+  };
+}
