@@ -13,3 +13,23 @@ function firstNonRepeatingChar(str) {
 }
 
 firstNonRepeatingChar(str);
+
+function firstNonRepeatingChar(str) {
+  const frequency = {};
+
+  // Count frequency
+  for (let char of str) {
+    frequency[char] = (frequency[char] || 0) + 1;
+  }
+
+  // Find first character with frequency 1
+  for (let char of str) {
+    if (frequency[char] === 1) {
+      return char;
+    }
+  }
+
+  return null;
+}
+
+console.log(firstNonRepeatingChar("aabbbcdde")); // c
