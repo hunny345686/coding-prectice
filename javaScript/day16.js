@@ -53,3 +53,34 @@ function removeDuplicates(arr) {
 
   return result;
 }
+
+// 3. Remove duplicate objects
+function removeDuplicateObjects(users) {
+  const seen = {};
+  const result = [];
+
+  for (let user of users) {
+    if (!seen[user.id]) {
+      seen[user.id] = true;
+      result.push(user);
+    }
+  }
+
+  return result;
+}
+
+// Character frequency?
+
+function frequency(str) {
+  const result = {};
+
+  for (let char of str) {
+    if (result[char]) {
+      result[char]++;
+    } else {
+      result[char] = 1;
+    }
+  }
+
+  return result;
+}
