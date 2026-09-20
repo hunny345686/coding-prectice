@@ -112,3 +112,83 @@ count++;
 console.log("C", count);
 
 // My ANS => "A" 0, "C" 1 "B" 2
+
+// Closure
+
+function outer() {
+  let count = 0;
+
+  function inner() {
+    count++;
+    console.log(count);
+  }
+
+  return inner;
+}
+
+const counter = outer();
+
+counter(); // 1
+counter(); // 2
+counter(); // 3
+
+// task 1
+
+function createAccount(initialBalance) {
+  let bl = initialBalance;
+  return {
+    deposit(amount) {
+      bl += amount;
+    },
+    getBalance() {
+      return balance;
+    },
+  };
+}
+
+const account = createAccount(1000);
+
+account.deposit(500);
+
+console.log(account.getBalance()); // 1500
+
+// Task 2
+
+function createCounter() {
+  let count = 0;
+
+  return () => ++count;
+}
+
+const counter1 = createCounter();
+
+counter1(); // 1
+counter1(); // 2
+counter1(); // 3
+
+function fetchUser(userId) {
+  return () => {
+    console.log("Fetching user:", userId);
+  };
+}
+
+const request = fetchUser(101);
+
+setTimeout(request, 1000);
+
+function outer() {
+  let x = 10;
+
+  return function inner() {
+    x++;
+    return x;
+  };
+}
+
+const fn = outer();
+
+console.log(fn());
+console.log(fn());
+console.log(fn());
+
+// Task 3
