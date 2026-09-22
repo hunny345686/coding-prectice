@@ -29,3 +29,21 @@ function Counter() {
 }
 
 export default Counter;
+
+import { useState, useEffect } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  console.log("Render:", count);
+
+  useEffect(() => {
+    console.log("Effect:", count);
+  }, [count]);
+
+  return <button onClick={() => setCount(count + 1)}>Increment</button>;
+}
+
+// Out put will be
+// on rander "Render:", 0 "Effect:", 0
+// btn click "Render:", 1 "Effect:", 1
