@@ -1,16 +1,16 @@
-// for (var i = 0; i < 3; i++) {
-//   setTimeout(() => {
-//     console.log("var:", i);
-//   }, 100);
-// }
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => {
+    console.log("var:", i);
+  }, 100);
+}
 
-// // 3 3 3
+// 3 3 3
 
-// for (let j = 0; j < 3; j++) {
-//   setTimeout(() => {
-//     console.log("let:", j);
-//   }, 100);
-// }
+for (let j = 0; j < 3; j++) {
+  setTimeout(() => {
+    console.log("let:", j);
+  }, 100);
+}
 
 // 0 1 2
 
@@ -26,22 +26,20 @@
 
 // inteview coding  question are
 
-// var a = 1;
+var a = 1;
 
-// function outer() {
-//   var a = 2;
+function outer() {
+  var a = 2;
 
-//   function inner() {
-//     var a = 3;
+  function inner() {
+    var a = 3;
 
-//     console.log(a);
-//   }
+    console.log(a);
+  }
 
-//   inner();
-// }
-// outer();
-
-// 2
+  inner();
+}
+outer();
 
 class Test {
   constructor(h, w) {
