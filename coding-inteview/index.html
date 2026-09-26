@@ -1,0 +1,58 @@
+<style>
+  /* .box {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+  }
+
+  .box1 {
+    background: red;
+    top: 50px;
+    left: 50px;
+  }
+
+  .box2 {
+    background: blue;
+    top: 100px;
+    left: 100px;
+  } */
+
+  .parent1 {
+    position: relative;
+    z-index: 1;
+    background-color: red;
+  }
+
+  .parent2 {
+    position: relative;
+    z-index: 2;
+    background-color: blue;
+  }
+
+  .child1 {
+    position: absolute;
+    z-index: 9999;
+    background-color: black;
+  }
+
+  .child2 {
+    position: absolute;
+    z-index: 1;
+    background-color: green;
+  }
+  div {
+    width: 200px;
+    height: 200px;
+  }
+</style>
+
+<!-- <div class="box box1"></div>
+<div class="box box2"></div> -->
+
+<div class="parent1">
+  <div class="child1"></div>
+</div>
+
+<div class="parent2">
+  <div class="child2"></div>
+</div>
