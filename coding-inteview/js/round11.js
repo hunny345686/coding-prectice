@@ -25,8 +25,11 @@ Function.prototype.myApply = function (ctx, args) {
 
 // bind();
 
-Function.prototype.myBind = function (ctx, ...args) {
-  return function (...args) {};
+Function.prototype.myBind = function (ctx, ...Oargs) {
+  const fn = this;
+  return function (...args) {
+    return fn.apply(ctx, [...args, ...Oargs]);
+  };
 };
 const d = greet.bind(user, "prem");
 
@@ -95,3 +98,15 @@ const user = {
 // Q2 A Prem B
 // Q3 Prem
 //  Q4 greet.call(ussr,"Hello","For punctuation")
+
+//Advanced issue: new
+
+function Person(name) {
+  this.name = name;
+}
+
+const OPer = Person.bind(null, "prem");
+
+const p = new OPer();
+
+console.log(p.name);
