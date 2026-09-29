@@ -56,19 +56,6 @@ Array.prototype.myFilter = function (callbck) {
   return result;
 };
 
-// Array.prototype.myReduce = function (callbck, acc) {
-//   let acu = acc ? acc : this[0];
-//   let index = acc ? 1 : 0;
-
-//   console.log(acu, index);
-
-//   for (let i = index; i < this.length; i++) {
-//     acc = callbck(acu, this[i], i, this);
-//   }
-
-//   return acu;
-// };
-
 Array.prototype.myReduce = function (callback, initialValue) {
   let accumulator;
   let startIndex = 0;
