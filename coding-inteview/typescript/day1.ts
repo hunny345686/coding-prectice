@@ -53,3 +53,41 @@ type UpdatedUser = Partial<User>; // All are optional
 type UserWithoutEmail = Omit<User, "email">;
 
 // union type
+
+// Use TypeScript's built-in Readonly
+
+interface Obj {
+  name: string;
+  address: {
+    city: string;
+    state: string;
+  };
+}
+
+// const obj: Readonly<Obj> = {
+//   name: "Prem",
+//   address: {
+//     city: "Mohali",
+//     state: "Punjab",
+//   },
+// };
+
+// obj.name = "ra";
+// obj.address.city = "HJkhj";
+
+// Approach B: Create a generic deep-readonly utility
+
+type DeepReadOnly<T> = {
+  readonly [K in keyof T]: T[K] extends object ? DeepReadOnly<T[K]> : T[K];
+};
+
+const obj: DeepReadOnly<Obj> = {
+  name: "Prem",
+  address: {
+    city: "Mohali",
+    state: "Punjab",
+  },
+};
+
+obj.name = "ra";
+obj.address.city = "HJkhj";
