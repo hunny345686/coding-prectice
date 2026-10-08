@@ -50,9 +50,17 @@
 <div class="box box2"></div> -->
 
 <div class="parent1">
-  <div class="child1"></div>
+  <div class="child1" i if data-analitic="click-evnt">Hello</div>
 </div>
 
 <div class="parent2">
   <div class="child2"></div>
 </div>
+
+<script>
+  const chile = document.querySelector(".child1");
+
+  console.log(chile.getAttribute("click-evnt"));
+
+  console.log(chile);
+</script>
